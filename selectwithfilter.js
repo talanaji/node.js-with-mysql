@@ -31,4 +31,21 @@ con.connect(function(err) {
 	  if (err) throw err;
 	  console.log(result);
 	});
+	
+	//sorts the result ascending
+	con.connect(function(err) {
+	  if (err) throw err;
+	  con.query("SELECT * FROM customers ORDER BY name", function (err, result) {
+		if (err) throw err;
+		console.log(result);
+	  });
+	 });
+	  //sorts the result descending
+	con.connect(function(err) {
+		if (err) throw err;
+		con.query("SELECT * FROM customers ORDER BY name DESC", function (err, result) {
+			if (err) throw err;
+			console.log(result);
+		});
+	});
 });
