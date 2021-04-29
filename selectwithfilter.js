@@ -15,7 +15,7 @@ con.connect(function(err) {
 	if (err) throw err;
 	console.log(result);
 	});*/
-	con.query("SELECT * FROM customers WHERE address LIKE 'S%'", function (err, result) {
+	con.query("SELECT * FROM customers WHERE address LIKE 'S%'  LIMIT 5 OFFSET 2", function (err, result) {
 	if (err) throw err;
 	console.log(result);
 	});
