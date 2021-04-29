@@ -8,7 +8,9 @@ var con = mysql.createConnection({
 });
 
 con.connect(function(err) {
+
 	if (err) throw err;
+
 	/* con.query("SELECT * FROM customers WHERE address = 'Park Lane 38'", function (err, result) {
 	if (err) throw err;
 	console.log(result);
@@ -18,7 +20,7 @@ con.connect(function(err) {
 	console.log(result);
 	});
 
-///When query values are variables provided by the user, you should escape the values or ? placeholder
+///When query values are variables provided by the user, you should escape the values
 	var adr = 'Mountain 21';
 	var sql = 'SELECT * FROM customers WHERE address = ' + mysql.escape(adr);
 	con.query(sql, function (err, result) {
@@ -32,20 +34,16 @@ con.connect(function(err) {
 	  console.log(result);
 	});
 	
-	//sorts the result ascending
-	con.connect(function(err) {
-	  if (err) throw err;
-	  con.query("SELECT * FROM customers ORDER BY name", function (err, result) {
+		//sorts the result ascending
+	con.query("SELECT * FROM customers ORDER BY name", function (err, result) {
+	if (err) throw err;
+	console.log(result);
+	});
+
+	//sorts the result desc
+	con.query("SELECT * FROM customers ORDER BY name DESC", function (err, result) {
 		if (err) throw err;
 		console.log(result);
-	  });
-	 });
-	  //sorts the result descending
-	con.connect(function(err) {
-		if (err) throw err;
-		con.query("SELECT * FROM customers ORDER BY name DESC", function (err, result) {
-			if (err) throw err;
-			console.log(result);
-		});
 	});
+
 });
